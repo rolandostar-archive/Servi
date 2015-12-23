@@ -1,2 +1,0 @@
-# Servi
-Programa de Logistica
