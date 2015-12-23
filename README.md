@@ -1,7 +1,6 @@
 
 
 # Servi 1.0
-===================
 
 Servi es una plataforma web para encontrar espacios disponibles en tu escuela, compañia o institucion. 
 
