@@ -223,8 +223,7 @@
         }
 
         function installListeners() {
-            $(document).click(function (e) {
-                e.preventDefault();
+            $(document).click(function () {
                 close();
             });
             $(document).keyup(function (e) {
@@ -315,7 +314,7 @@
                     href = href.substring(0, href.indexOf('?'));
                 }
                 href += toQueryString(params);
-                liElement = $("<li><a id=\"" + id + "\" href=\"" + href + "\">" + text + "</a></li>");
+                liElement = $("<li><a id=\"" + id + "\" href=\"\">" + text + "</a></li>");
             }
             liElement.bind('click', function () {
                 triggerEvent({name:'onChange', selectedItem: $(this).children(":first").attr('id'), element:rootElement, instance:ls});
@@ -368,8 +367,7 @@
             e.preventDefault();
             open();
         };
-        ls.close = function (e) {
-            e.preventDefault();
+        ls.close = function () {
             close();
         };
         triggerEvent({name:'afterLoad', element:rootElement, instance:ls});

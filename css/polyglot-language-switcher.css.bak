@@ -93,7 +93,7 @@ License URI: http://www.opensource.org/licenses/mit-license.php
 }
 
 #polyglotLanguageSwitcher a.current:link span.trigger, #polyglotLanguageSwitcher a.current:visited span.trigger {
-	background: url(../assets/misc/arrow-down.gif) no-repeat left top;	
+	background: url(../images/arrow-down.gif) no-repeat left top;	
 }
 
 #polyglotLanguageSwitcher a.current:hover span.trigger, #polyglotLanguageSwitcher a.current:active span.trigger, #polyglotLanguageSwitcher a.active span.trigger {
