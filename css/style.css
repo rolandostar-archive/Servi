@@ -6,12 +6,13 @@ body {
 html {
   position: relative;
   min-height: 100%;
+  overflow: scroll;
 }
 
 
 footer.page-footer {
   position: absolute;
-  bottom: 0;
+  bottom: 70px;
   width: 100%;
   clear: both;
 }

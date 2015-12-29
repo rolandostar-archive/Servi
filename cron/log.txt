@@ -1,0 +1,4 @@
+Cron Job Mail Log - Servi
+
+2015-12-27 19:48:46: Message sent to :rolandostar.pr@gmail.com
+2015-12-27 19:49:36 - Message sent to: rolandostar.pr@gmail.com
