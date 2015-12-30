@@ -1,3 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <?php include_once ( $_SERVER["DOCUMENT_ROOT"].'/servi/include/styles.php');?>
+    <link rel="stylesheet" href="login-style.css" type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Cookies, Y Lang Para Idioma -->
+
+</head>
+<body>
+<div class="wrapper " id="main">
+    <div class="container">
+        <h1 lang="es">Bienvenido</h1>
+        
+        <form class="form" method="post">
+            <input type="text" name="user"  placeholder="Usuario" lang="es" required />
+            <input type="password" name="pass" placeholder="Contrase&ntilde;a" lang="es" required />
+            <button type="submit" id="login-button" name="btn-login"><span lang="es">Iniciar Sesion</span</button>
+        </form>
+    </div>
+</div>
 <?php
 session_start();
 include_once 'dbconnect.php';
@@ -9,52 +30,64 @@ if(isset($_SESSION['user'])!="")
 
 if(isset($_POST['btn-login']))
 {
-	$email = mysql_real_escape_string($_POST['email']);
+	$user = mysql_real_escape_string($_POST['user']);
 	$upass = mysql_real_escape_string($_POST['pass']);
-	$res=mysql_query("SELECT * FROM users WHERE email='$email'");
+	$res=mysql_query("SELECT * FROM admins WHERE username='$user'");
 	$row=mysql_fetch_array($res);
 	
 	if($row['password']==md5($upass))
 	{
 		$_SESSION['user'] = $row['user_id'];
-		header("Location: home.php");
+
+		echo '
+<script>
+
+     
+     $("form").fadeOut(500);
+     $(".wrapper").addClass("form-success");
+     $(".wrapper").delay(1500).fadeOut(500);
+         var newUrl = location.href.match( /^(http.+\/)[^\/]+$/ )[1];
+    newUrl += "home.php";
+     setTimeout(function(){
+
+    window.location = newUrl;
+}, 2000);
+	
+</script>
+';
+
+
+		
+		//header("Location: home.php");
 	}
 	else
 	{
-		?>
-        <script>alert('wrong details');</script>
-        <?php
+		echo '
+
+<script>alert("wrong details");</script>
+';
+
+		
+        
 	}
 	
+}else{
+
+	echo '
+
+<script>
+document.getElementById("main").style.display = "none";
+$("#main").fadeIn("slow");
+</script>
+';
+
 }
+
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>cleartuts - Login & Registration System</title>
-<link rel="stylesheet" href="style.css" type="text/css" />
-</head>
-<body>
-<center>
-<div id="login-form">
-<form method="post">
-<table align="center" width="30%" border="0">
-<tr>
-<td><input type="text" name="email" placeholder="Your Email" required /></td>
-</tr>
-<tr>
-<td><input type="password" name="pass" placeholder="Your Password" required /></td>
-</tr>
-<tr>
-<td><button type="submit" name="btn-login">Sign In</button></td>
-</tr>
-<tr>
-<td><a href="register.php">Sign Up Here</a></td>
-</tr>
-</table>
-</form>
-</div>
-</center>
+
+
 </body>
+
 </html>
+
+

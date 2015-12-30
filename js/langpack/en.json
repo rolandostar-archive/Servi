@@ -25,6 +25,10 @@
         "Política de Privacidad":"Privacy Policy",
         "Términos y Condiciones":"Terms and Conditions",
         "Regresar":"Return",
-        "Hecho por":"Made by"
+        "Hecho por":"Made by",
+        "Bienvenido": "Welcome",
+        "Usuario":"Username",
+        "Contraseña":"Password",
+        "Iniciar Sesion":"Login"
     }
 }

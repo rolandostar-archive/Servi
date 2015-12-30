@@ -6,16 +6,24 @@ body {
 html {
   position: relative;
   min-height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 
 footer.page-footer {
   position: absolute;
-  bottom: 70px;
+  bottom: 40px;
   width: 100%;
   clear: both;
 }
+
+.footer-copyright p{
+    margin:0;
+    padding-bottom:10px
+    line-height: 25px;
+}
+
+
 
 
 .mono {

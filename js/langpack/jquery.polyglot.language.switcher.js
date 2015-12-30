@@ -268,10 +268,9 @@
                 if (length > 0) {
                     ulElement.append(liElement);
                 } else {
-                    aElement = $("<a id=\"" + $(this).attr("id") + "\" class=\"current\" style=\"box-sizing:content-box;\" href=\"#\">" + $(this).text() + " <span class=\"trigger\">&raquo;</span></a>");
+                    aElement = $("<a id=\"" + $(this).attr("id") + "\" class=\"current\" href=\"#\">" + $(this).text() + " <span class=\"trigger\">&raquo;</span></a>");
                     if (settings.openMode == 'hover') {
-                        aElement.hover(function (e) {
-                            e.preventDefault();
+                        aElement.hover(function () {
                             open();
                             suspendCloseAction();
                         }, function () {
@@ -279,8 +278,7 @@
                         });
                     } else {
                         aElement.click(
-                            function (e) {
-                                e.preventDefault();
+                            function () {
                                 open();
                             }
                         );
@@ -363,8 +361,7 @@
             }
         }
 
-        ls.open = function (e) {
-            e.preventDefault();
+        ls.open = function () {
             open();
         };
         ls.close = function () {
