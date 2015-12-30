@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <?php include_once ( 'include/meta.php'); include_once ( 'include/styles.php') ; include_once ( 'include/js_head.php'); ?>
+    <?php include_once ( 'include/meta.php'); include_once ( 'include/styles.php') ; include_once ( 'include/js_head.php'); include_once ( 'cpanel/dbconnect.php');?>
     <title>Servi&trade; [Classroom] &raquo;</title>
 </head>
 
@@ -41,16 +41,37 @@
                                     <tbody class="mono">
                                     <!--PHP Generated -->
                                     <?php
-                                    for ($x = 0; $x <= 5; $x++){
-                                        echo "<tr>";
-                                        echo "<td>"."1312"."</td>";
-                                        echo "<td>"."11:00"."</td>";
-                                        echo "</tr>";
-                                    }
-                                    ?>
+                                    date_default_timezone_set('America/Mexico_City');
+
+                                    $num = date("w");
+                                    if($num == 1) $date="lunes";
+                                    else if($num == 2) $date = "martes";
+                                    else if ($num == 3) $date = "miercoles";
+                                    else if ($num == 4) $date = "jueves";
+                                    else if ($num == 5) $date = "viernes";
+                                    else $date = NULL;
+                                    if($date != NULL){
+                                    $hora = mysql_query("SELECT DISTINCT(salon),".$date." from horario where salon NOT IN(SELECT salon from horario WHERE ".$date." BETWEEN SUBTIME(CURTIME(), '01:30') AND CURTIME()) GROUP BY salon") or die(mysql_error());
+                                    while($row = mysql_fetch_assoc($hora)) { ?>
+                                        <tr>
+                                            <td><?php echo $row['salon']; ?></td>
+                                            <?php
+                                            $until = "El Resto del Dia";
+                                             $salon = mysql_query("SELECT ".$date." FROM horario WHERE salon=".$row['salon']." AND ".$date." = (SELECT min(".$date.") FROM horario WHERE ".$date.">CURTIME() AND salon=".$row['salon'].")") or die(mysql_error());
+                                             while($row = mysql_fetch_assoc($salon)){
+                                                $until = $row[$date];
+                                                }
+                                            ?>
+                                            <td><?php echo $until; ?></td>
+                                        </tr>
+                                    <?php } 
+                                        ?>
                                     <!-- END PHP -->
                                     </tbody>
                                 </table>
+                                <?php }else{
+                                    echo '<span class="card-title">No Disponible en Fines de Semana</span>';
+                                    } ?>
                             </div>
                         </div>
                     </div>
