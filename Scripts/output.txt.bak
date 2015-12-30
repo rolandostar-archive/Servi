@@ -1,7 +1,7 @@
 Array
 (
     [email] => rolandostar.pr@gmail.com
-    [Salon] => 1615
+    [Salon] => 1415
     [lang] => es
 )
 Array
@@ -12,9 +12,6 @@ Array
 )
 Array
 (
-    [email] => rolandostar.pr@gmail.com
-    [Salon] => 1615
-    [lang] => es
 )
 Array
 (
@@ -22,39 +19,16 @@ Array
     [Salon] => 1615
     [lang] => es
 )
-Array
+INSERT INTO notify (id,lang,correo,msg,enviado) VALUES ('',es,'rolandostar.pr@gmail.com,Salon 1615 ya esta disponible',ADDTIME(NOW(),'00:01'),0)Array
 (
     [email] => rolandostar.pr@gmail.com
     [Salon] => 1615
     [lang] => es
 )
-Array
-(
-    [email] => rolandostar.pr@gmail.2
-    [Salon] => 1615
-    [lang] => es
-)
-Array
-(
-    [email] => n11rtr@yahoo.com
-    [Salon] => 1615
-    [lang] => es
-)
-Array
+INSERT INTO notify (id,lang,correo,msg,enviado) VALUES ('',es,'rolandostar.pr@gmail.com,Salon 1615 ya esta disponible',ADDTIME(NOW(),'00:01'),0)Array
 (
     [email] => rolandostar.pr@gmail.com
     [Salon] => 1615
     [lang] => es
 )
-Array
-(
-    [email] => rolandostar.pr@gmail.com
-    [Salon] => 1615
-    [lang] => es
-)
-Array
-(
-    [email] => rolandostar.pr@gmail.com
-    [Salon] => 1615
-    [lang] => es
-)
+INSERT INTO notify (id,lang,correo,msg,enviado) VALUES (NULL,'es','rolandostar.pr@gmail.com','Salon 1615 ya esta disponible',ADDTIME(NOW(),'00:01'),0)
