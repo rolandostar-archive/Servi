@@ -1,7 +1,0 @@
-Array
-(
-    [email] => rolandostar.rr@gmail.com
-    [Salon] => 1415
-    [lang] => es
-)
-INSERT INTO notify (id,lang,correo,msg,tiempo,enviado) VALUES (NULL,'es','rolandostar.rr@gmail.com','Salon 1415 ya esta disponible',NOW(),0)

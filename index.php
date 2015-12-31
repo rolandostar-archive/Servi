@@ -12,7 +12,8 @@
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <div class="row center">
-                <img src="assets/img/Logo.png" class="responsive-img" style="max-height:195px;" height=100%/>
+                <img src="assets/img/Logo.png" class="hide-on-small-only responsive-img" style="max-height:195px;" height=100%/>
+                <img src="assets/img/Logo-m.png" class="hide-on-med-and-up responsive-img"/>
             </div>
             <div class="row center">
                 <h5 class="header col s12 light white-text" lang="es">Un Moderno Localizador de Salones Disponibles para tu Instituci&oacute;n</h5>
@@ -102,7 +103,7 @@
                             <div class="card-reveal2" style="font-size:20px;" id="Notify">
                                 <span class="card-title grey-text text-darken-4" lang="es">Servicio de Notificaciones<i class="material-icons right">close</i></span>
                                 <p class="flow-text2">Dejanos tu correo y te enviaremos una notificacion cuando el salon este <a>disponible</a>.</p>
-                                <form id="notifyform" class="col s12" action="javascript:submitnotify();">
+                                <form id="notifyform" class="col s12" action="javascript:submitnotify(0);">
                                     <div class="row">
                                         <div class="input-field col s9 m6 l9 offset-m2">
                                             <i class="material-icons prefix" style="margin-top:6px;">account_circle</i>
@@ -233,29 +234,29 @@
 
 <!-- Modal Movil Notificacion -->
 <div id="notify-modal" class="modal bottom-sheet-up">
-        <div class="modal-content center">
+    <form id="notifyform-m" class="col s12" action="javascript:submitnotify(1);">
+    <div class="modal-content center">
         <h5 lang="es">Servicio de Notificaciones</h5>
-                    <div id="progress" class="progress">
+                    <div id="progress-m" class="progress">
                 <div class="indeterminate"></div>
             </div>
         <p class="flow-text2">Dejanos tu correo y te enviaremos una notificacion cuando el salon este <a>disponible</a>.</p>
-        <form id="notifyform-m" class="col s12" action="javascript:submitnotify();">
             <div class="row">
                 <div class="input-field col s9 m6 l9 offset-m2">
                     <i class="material-icons prefix" style="margin-top:6px;">account_circle</i>
                     <input id="email" name="email" type="email" value="" class="validate" required>
                      <label for="email">Email</label>
                 </div>
-                <input id="salonSel-hidden" type="hidden" name="Salon" value="">
-                <input id="lang" type="hidden" name="lang" value="">
+                <input id="salonSel-hidden-m" type="hidden" name="Salon" value="">
+                <input id="lang-m" type="hidden" name="lang" value="">
                 <div class="input-field col s3 m2 l3 ">
                     <select name="salon" disabled>
-                        <option id="salonSel" selected></option>
+                        <option id="salonSel-m" selected></option>
                     </select>
                     <label>Salon</label>
                 </div>
             </div>
-        </form>
+
     </div>
     <div class="modal-footer">
         <button class="right modal-action btn-flat waves-effect waves-light" id="submit">Submit
@@ -263,6 +264,7 @@
         </button>
         <a class="left modal-action modal-close waves-effect waves-teal btn-flat" lang="es">Regresar</a>
     </div>
+    </form>
 </div>
 
 
@@ -292,22 +294,17 @@
         document.getElementById("done").style.display = "none";
         $('select').material_select();
     }else{
+        document.getElementById("salonSel-m").innerHTML = salon;
+        document.getElementById("salonSel-hidden-m").value = salon;
+        document.getElementById("lang-m").value = Cookies.get('langCookie');
+        document.getElementById("progress-m").style.visibility = "hidden";
+        $('select').material_select();
         $('#notify-modal').openModal();
         $("meta[name='theme-color']").attr('content', "#FFFFFF");
     }
   }
 
   $(document).ready(function() {
-
-
-$('.modal-trigger').leanModal({
-      dismissible: true, // Modal can be dismissed by clicking outside of the modal
-      ready: function() { alert('Ready'); }, // Callback for Modal open
-      complete: function() { alert('Closed'); } // Callback for Modal close
-    }
-  );
-
-
 
     var original=$('#Proximos').outerHeight();
     $(document).on('click.card', '.card', function (e) {
@@ -341,7 +338,9 @@ $('.modal-trigger').leanModal({
 
   });
 
-  function submitnotify(theForm,flag) {
+
+
+  function submitnotify(flag) {
     if(!flag){
     var myData = $('#notifyform').serializeArray();
     $.ajax({
@@ -361,19 +360,22 @@ $('.modal-trigger').leanModal({
         }
     });
     }else{
+        document.getElementById('progress-m').style.visibility = "visible"
         var myData = $('#notifyform-m').serializeArray();
         $.ajax({
         url: 'scripts/agregar.php',
         type: 'POST',
         data: $.param(myData),
         success: function(msg) {
-            document.getElementById('progress-m').style.visibility = "visible"
-            setTimeout(function() {
-                document.getElementById('progress-m').style.display = "none";
-                document.getElementById('done').style.display = "block";
-            }, 1500);
             setTimeout(function() {
                 $('#notify-modal').closeModal();
+                toastr.success('Listo! Nosotros te avisamos.', '',{positionClass: "toast-bottom-center",
+                      showDuration: 1000,
+                      hideDuration: 500,
+                      showEasing: "linear",
+                      showMethod: "fadeIn",
+                      hideMethod: "fadeOut"
+                });
             }, 3000);
 
         }
@@ -381,7 +383,13 @@ $('.modal-trigger').leanModal({
     }
   }
 
+
+
+
 </script>
+
+
+
 </body>
 
 </html>

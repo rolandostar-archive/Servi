@@ -12,17 +12,16 @@
                     window.lang.change(evt.selectedItem);
                 }
             });
-
         });
     </script>
 
+    <script type="text/javascript" src="js/toastr.min.js"></script>
     <!-- Libreria Materialize -->
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
 
-<script>
-function getQueryVariable(variable)
-{
+    <script>
+    function getQueryVariable(variable) {
        var query = window.location.search.substring(1);
        var vars = query.split("&");
        for (var i=0;i<vars.length;i++) {
@@ -30,15 +29,13 @@ function getQueryVariable(variable)
                if(pair[0] == variable){return pair[1];}
        }
        return(false);
-}
-
-</script>
+    }
+    </script>
 
     <!-- Cookies, Y Lang Para Idioma -->
     <script src="js/js.cookie.js" charset="utf-8" type="text/javascript"></script>
     <script src="js/jquery-lang.js" charset="utf-8" type="text/javascript"></script>
     <script>
-
         var lang = new Lang();
         lang.dynamic('en', 'js/langpack/en.json');
         lang.dynamic('it', 'js/langpack/it.json');
@@ -52,12 +49,8 @@ function getQueryVariable(variable)
             currentLang: langus
         });
         }else{
-        lang.init({
-            defaultLang: 'es'
-        });
+            lang.init({defaultLang: 'es'});
         }
-
-
 
         
     </script>

@@ -36,3 +36,9 @@
     <!-- Importar Fuente Google Icon -->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&subset=latin,latin-ext" rel="stylesheet">
+    
+    <!-- Importar Estilos -->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/polyglot-language-switcher.css" />
+    <link type="text/css" rel="stylesheet" href="css/toastr.min.css" />

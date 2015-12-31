@@ -3,7 +3,6 @@
 <head>
     <?php
         include_once ('include/meta.php');
-        include_once ('include/styles.php') ;
         include_once ('include/js_head.php');
     ?>
     <title>&quot;Servi&trade; [Classroom]&quot;</title>
