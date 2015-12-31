@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <?php include_once ( 'include/meta.php'); include_once ( 'include/styles.php') ; include_once ( 'include/js_head.php'); ?>
+    <?php include_once ( 'include/meta.php'); include_once ( 'include/js_head.php'); ?>
     <title>Servi&trade; [Classroom] &raquo;</title>
 
 </head>
@@ -102,7 +102,7 @@
                             
                             <div class="card-reveal2" style="font-size:20px;" id="Notify">
                                 <span class="card-title grey-text text-darken-4" lang="es">Servicio de Notificaciones<i class="material-icons right">close</i></span>
-                                <p class="flow-text2">Dejanos tu correo y te enviaremos una notificacion cuando el salon este <a>disponible</a>.</p>
+                                <p class="flow-text2" lang="es">Dejanos tu correo y te enviaremos una notificación cuando el salón este <a lang="es">disponible</a>.</p>
                                 <form id="notifyform" class="col s12" action="javascript:submitnotify(0);">
                                     <div class="row">
                                         <div class="input-field col s9 m6 l9 offset-m2">
@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
                                     <div class="row center">
-                                        <button class="btn waves-effect waves-light" id="submit">Submit
+                                        <button class="btn waves-effect waves-light" id="submit" lang="es">Enviar
                                             <i class="material-icons right">send</i>
                                         </button>
                                     </div>
@@ -240,7 +240,7 @@
                     <div id="progress-m" class="progress">
                 <div class="indeterminate"></div>
             </div>
-        <p class="flow-text2">Dejanos tu correo y te enviaremos una notificacion cuando el salon este <a>disponible</a>.</p>
+        <p class="flow-text2" lang="es">Dejanos tu correo y te enviaremos una notificación cuando el salón este <a>disponible</a>.</p>
             <div class="row">
                 <div class="input-field col s9 m6 l9 offset-m2">
                     <i class="material-icons prefix" style="margin-top:6px;">account_circle</i>
@@ -253,13 +253,13 @@
                     <select name="salon" disabled>
                         <option id="salonSel-m" selected></option>
                     </select>
-                    <label>Salon</label>
+                    <label lang="es">Salón</label>
                 </div>
             </div>
 
     </div>
     <div class="modal-footer">
-        <button class="right modal-action btn-flat waves-effect waves-light" id="submit">Submit
+        <button class="right modal-action btn-flat waves-effect waves-light" id="submit" lang="es">Enviar
             <i class="material-icons right">send</i>
         </button>
         <a class="left modal-action modal-close waves-effect waves-teal btn-flat" lang="es">Regresar</a>
@@ -305,7 +305,6 @@
   }
 
   $(document).ready(function() {
-
     var original=$('#Proximos').outerHeight();
     $(document).on('click.card', '.card', function (e) {
       if ($(this).find('> .card-reveal2').length) {
@@ -369,7 +368,7 @@
         success: function(msg) {
             setTimeout(function() {
                 $('#notify-modal').closeModal();
-                toastr.success('Listo! Nosotros te avisamos.', '',{positionClass: "toast-bottom-center",
+                toastr.success('<span lang="es">Listo! Nosotros te avisamos</span>', '',{positionClass: "toast-bottom-center",
                       showDuration: 1000,
                       hideDuration: 500,
                       showEasing: "linear",

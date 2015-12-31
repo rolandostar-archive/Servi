@@ -20,8 +20,7 @@ mysqli_select_db($mysql, 'servi');
 $result = mysqli_query($mysql, 'SELECT correo,salon,lang FROM notify WHERE enviado = false');
 
 foreach ($result as $row) { //This iterator syntax only works in PHP 5.4+
-
-switch ($_POST['lang']) {
+switch ($row['lang']) {
     case "es": 
         $msg_pre = "Salon ";
         $msg_pos = " ya esta disponible";

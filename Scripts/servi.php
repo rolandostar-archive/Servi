@@ -27,11 +27,11 @@ if ($date != NULL) {
 <tr>
     <td><?php echo $row['salon'];?></td>
 <?php
-    $until = "El Resto del Dia";
+    $until = "El Resto del Día";
     $salon = mysql_query("SELECT ".$date." FROM horario WHERE salon=".$row['salon']." AND ".$date." = (SELECT min(".$date.") FROM horario WHERE ".$date.">CURTIME() AND salon=".$row['salon'].")") or die(mysql_error());
     while ($row = mysql_fetch_assoc($salon)) $until = $row[$date];
 ?>
-    <td><?php echo $until;?></td>
+    <td lang="es"><?php echo $until;?></td>
 </tr>
 <?php
     }
