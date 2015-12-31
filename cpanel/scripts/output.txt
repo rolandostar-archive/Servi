@@ -1,0 +1,15 @@
+update horario SET salon=1058 WHERE grupo=1CM1;
+update horario SET salon=1016 WHERE grupo=1CM2;
+update horario SET salon=1080 WHERE grupo=1CM3;
+update horario SET salon=1005 WHERE grupo=1CM4;
+update horario SET salon=1085 WHERE grupo=1CM5;
+update horario SET salon=1003 WHERE grupo=1CM6;
+update horario SET salon=1062 WHERE grupo=1CM7;
+update horario SET salon=1051 WHERE grupo=1CM8;
+update horario SET salon=1075 WHERE grupo=1CM9;
+update horario SET salon=1049 WHERE grupo=1CM10;
+update horario SET salon=1037 WHERE grupo=1CM11;
+update horario SET salon=1036 WHERE grupo=1CM12;
+update horario SET salon=1064 WHERE grupo=1CM13;
+update horario SET salon=1013 WHERE grupo=1CM14;
+update horario SET salon=1018 WHERE grupo=1CM15;

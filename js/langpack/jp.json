@@ -29,6 +29,26 @@
         "Bienvenido": "ようこそ",
         "Usuario":"使用者",
         "Contraseña":"パスワード",
-        "Iniciar Sesion":"ログイン"
+        "Iniciar Sesion":"ログイン",
+        "Asignar":"割り当て",
+        "Grupo":"グループ",
+        "Materia":"コース",
+        "Viernes":"金曜日",
+        "Jueves":"木曜日",
+        "Miércoles":"水曜日",
+        "Martes":"火曜日",
+        "Lunes":"月曜日",
+        "Profesor":"教授",
+        "Horarios Registrados":"登録時刻表",
+        "Debug":"デバッグ",
+        "Asignar Salones":"サロンの割り当て",
+        "Renovar Huecos™":"Huecos™改修します",
+        "Modificar Configuración":"設定の変更",
+        "Modificar Reportes":"レポートを変更",
+        "Renovar Horario":"営業時間を更新",
+        "Salir":"以下のままに",
+        "Panel de Control":"[コントロールパネル]",
+        "Servi™ - Panel de Control":"SERVI™ - [コントロールパネル]",
+        "Salones Asignados":""
     }
 }

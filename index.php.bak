@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <?php include_once ( 'include/meta.php'); include_once ( 'include/styles.php') ; include_once ( 'include/js_head.php'); ?>
+    <?php include_once ( '/include/meta.php'); include_once ( '/include/styles.php') ; include_once ( '/include/js_head.php'); ?>
     <title>Servi&trade; [Classroom] &raquo;</title>
 </head>
 

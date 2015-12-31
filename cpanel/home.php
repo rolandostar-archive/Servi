@@ -6,6 +6,7 @@ if(!isset($_SESSION['user']))
 {
     header("Location: login.php");
 }
+mysql_query("UPDATE admins SET last_seen=NOW() WHERE user_id=".$_SESSION['user']);
 $res=mysql_query("SELECT * FROM admins WHERE user_id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
 ?>
@@ -35,7 +36,7 @@ $userRow=mysql_fetch_array($res);
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <!-- Titulo -->
-    <title>Welcome - <?php echo $userRow['username']; ?></title>
+    <title lang="es">Servi&trade; - Panel de Control</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -104,11 +105,11 @@ $userRow=mysql_fetch_array($res);
 <main id="wrapper">
     <nav class="grey darken-3" id="header">
         <div class="nav-wrapper container">
-          <label>Panel de Control</label>
+          <label lang="es">Panel de Control</label>
           <ul id="nav" class="right">
-            <li><a href="javascript:logout();">Salir</a></li>
+            <li><a href="javascript:logout();"><span lang="es">Salir</span></a></li>
           </ul>
-          <span class="right" style="margin-right:50px;">Bienvenido <?php echo $userRow['name']; ?>!</span>
+          <span class="right" style="margin-right:50px;" ><span lang="es">Bienvenido</span> <?php echo $userRow['name']; ?>!</span>
         </div>
     </nav>
     <div id="body" class="container">
@@ -119,19 +120,19 @@ $userRow=mysql_fetch_array($res);
                 <div class="col s12 m4 card click" value="1">
                     <div class="icon-block">
                         <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-                        <h5 class="center">Renovar Horario</h5>
+                        <h5 class="center" lang="es">Renovar Horario</h5>
                     </div>
                 </div>
                 <div class="col s12 m4 card" value="2" style="cursor:not-allowed">
                     <div class="icon-block">
                         <h2 class="center grey-text"><i class="material-icons">assignment</i></h2>
-                        <h5 class="center">Modificar Reportes</h5>
+                        <h5 class="center" lang="es">Modificar Reportes</h5>
                     </div>
                 </div>
                 <div class="col s12 m4 card" value="3" style="cursor:not-allowed">
                     <div class="icon-block">
                         <h2 class="center grey-text"><i class="material-icons">settings</i></h2>
-                        <h5 class="center">Modificar Configuracion</h5>
+                        <h5 class="center" lang="es">Modificar Configuraci&oacute;n</h5>
                     </div>
                 </div>
                 </div>
@@ -139,19 +140,19 @@ $userRow=mysql_fetch_array($res);
                 <div class="col s12 m4 card" value="4" style="cursor:not-allowed">
                     <div class="icon-block">
                         <h2 class="center grey-text"><i class="material-icons">schedule</i></h2>
-                        <h5 class="center">Renovar Huecos&trade;</h5>
+                        <h5 class="center" lang="es">Renovar Huecos&trade;</h5>
                     </div>
                 </div>
                 <div class="col s12 m4 card click" value="5">
                     <div class="icon-block">
                         <h2 class="center light-blue-text"><i class="material-icons">group_work</i></h2>
-                        <h5 class="center">Asignar Salones</h5>
+                        <h5 class="center" lang="es">Asignar Salones</h5>
                     </div>
                 </div>
                 <div class="col s12 m4 card click" value="6">
                     <div class="icon-block">
-                        <h2 class="center light-blue-text"><i class="material-icons">https</i></h2>
-                        <h5 class="center">Modificar Admins</h5>
+                        <h2 class="center light-blue-text"><i class="material-icons">bug_report</i></h2>
+                        <h5 class="center" lang="es">Debug</h5>
                     </div>
                 </div>
             </div>
@@ -160,19 +161,19 @@ $userRow=mysql_fetch_array($res);
             <!--   Icon Section   -->
             <div class="row">
                 <div class="col s12 card">
-                    <table class="demo">
-                        <caption><h4>Horarios Registrados</h4></caption>
+                    <table class="centered highlight">
+                        <caption><h4 lang="es">Horarios Registrados</h4></caption>
                         <thead>
                         <tr>
-                            <th>Grupo</th>
-                            <th>Materia</th>
-                            <th>Profesor</th>
-                            <th>Salon</th>
-                            <th>Lunes</th>
-                            <th>Martes</th>
-                            <th>Miercoles</th>
-                            <th>Jueves</th>
-                            <th>Viernes</th>
+                            <th lang="es">Grupo</th>
+                            <th lang="es">Materia</th>
+                            <th lang="es">Profesor</th>
+                            <th lang="es">Sal&oacute;n</th>
+                            <th lang="es">Lunes</th>
+                            <th lang="es">Martes</th>
+                            <th lang="es">Mi&eacute;rcoles</th>
+                            <th lang="es">Jueves</th>
+                            <th lang="es">Viernes</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -204,7 +205,7 @@ $userRow=mysql_fetch_array($res);
         </div>
         <div class="section" id="Asignar">
             <div class="row card">
-                <form name="Asignar">
+                <form id="asignarForm" name="Asignar" method="post" action="javascript:submitAsig();">
                 <?php
                 $result3 = mysql_query("select Count( distinct grupo ) from horario");
                 $row = mysql_fetch_assoc($result3);
@@ -214,8 +215,8 @@ $userRow=mysql_fetch_array($res);
                     <table class="center striped asignar">
                         <thead>
                         <tr>
-                            <th>Grupo</th>
-                            <th>Salon</th>
+                            <th lang="es">Grupo</th>
+                            <th lang="es">Sal&oacute;n</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -230,7 +231,7 @@ $userRow=mysql_fetch_array($res);
                         <tr>
                             <td><?php echo $row['grupo']?></td>
                             <td>
-                                  <input <?php echo 'placeholder="'.$row['salon'].'"'; ?> name="salon[]" type="number">
+                                  <input <?php echo 'value="'.$row['salon'].'"'; ?> name="salon[]" type="number">
                                   <?php echo '<input type="hidden" name="grupo[]" value="'.$row['grupo'].'">'; ?>
                             </td>
                         </tr>
@@ -242,8 +243,8 @@ $userRow=mysql_fetch_array($res);
                     <table class="center striped asignar" >
                         <thead>
                         <tr>
-                            <th >Grupo</th>
-                            <th width="30%">Salon</th>
+                            <th lang="es">Grupo</th>
+                            <th lang="es">Sal&oacute;n</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -257,7 +258,7 @@ $userRow=mysql_fetch_array($res);
                         <tr>
                             <td><?php echo $row['grupo']?></td>
                             <td>
-                                  <input <?php echo 'placeholder="'.$row['salon'].'"'; ?> name="salon[]" type="number">
+                                  <input <?php echo 'value="'.$row['salon'].'"'; ?> name="salon[]" type="number">
                                   <?php echo '<input type="hidden" name="grupo[]" value="'.$row['grupo'].'">'; ?>
                             </td>
                         </tr>
@@ -267,7 +268,9 @@ $userRow=mysql_fetch_array($res);
 
                 </div>
                                     <div class="center">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Asignar
+                                    &nbsp;
+                                    <br>
+                        <button class="btn waves-effect waves-light" type="submit" lang="es">Asignar
                             <i class="material-icons right">send</i>
                         </button>
                         <br>
@@ -345,6 +348,18 @@ $userRow=mysql_fetch_array($res);
         classname[i].style.cursor = 'pointer';
         classname[i].addEventListener('click', mrClick, false);
     }
+
+    function submitAsig() {
+    var myData = $('#asignarForm').serializeArray();
+    $.ajax({
+        url: 'scripts/asignar.php',
+        type: 'POST',
+        data: $.param(myData),
+        success: function(msg) {
+            alert(window.lang.translate('Salones Asignados'));
+        }
+    });
+  }
 
     </script>
 </body>

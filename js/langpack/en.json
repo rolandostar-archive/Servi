@@ -29,6 +29,26 @@
         "Bienvenido": "Welcome",
         "Usuario":"Username",
         "Contraseña":"Password",
-        "Iniciar Sesion":"Login"
+        "Iniciar Sesion":"Login",
+        "Asignar":"Assign",
+        "Grupo":"Group",
+        "Materia":"Course",
+        "Viernes":"Friday",
+        "Jueves":"Thursday",
+        "Miércoles":"Wednesay",
+        "Martes":"Tuesday",
+        "Lunes":"Monday",
+        "Profesor":"Teacher",
+        "Horarios Registrados":"Scheduled Courses",
+        "Modificar Admins":"Modify Admins",
+        "Asignar Salones":"Assign Classrooms",
+        "Renovar Huecos™":"Renew Huecos™",
+        "Modificar Configuración":"Modify Configuration",
+        "Modificar Reportes":"Modify Reports",
+        "Renovar Horario":"Renew Schedules",
+        "Salir":"Logout",
+        "Panel de Control":"Control Panel",
+        "Servi™ - Panel de Control":"Servi™ - Control Panel",
+        "Salones Asignados":"Classrooms Updated"
     }
 }

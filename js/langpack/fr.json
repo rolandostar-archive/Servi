@@ -29,6 +29,26 @@
         "Bienvenido": "Bienvenu",
         "Usuario":"Utilisateur",
         "Contraseña":"Mot de Passe",
-        "Iniciar Sesion":"Connexion"
+        "Iniciar Sesion":"Connexion",
+        "Asignar":"",
+        "Grupo":"",
+        "Materia":"",
+        "Viernes":"",
+        "Jueves":"",
+        "Miércoles":"",
+        "Martes":"",
+        "Lunes":"",
+        "Profesor":"",
+        "Horarios Registrados":"",
+        "Modificar Admins":"",
+        "Asignar Salones":"",
+        "Renovar Huecos™":"",
+        "Modificar Configuración":"",
+        "Modificar Reportes":"",
+        "Renovar Horario":"",
+        "Salir":"",
+        "Panel de Control":"",
+        "Servi™ - Panel de Control":"",
+        "Salones Asignados":""
     }
 }
