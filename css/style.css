@@ -24,6 +24,49 @@ footer.page-footer {
 }
 
 
-.mono {
+.mono td{
     font-family: "Roboto Mono";
+}
+
+
+
+.flow-text {
+  /*font-weight: 300;*/
+}
+
+@media only screen and (min-width: 360px) {
+  .flow-text2 {
+    font-size: 1.0rem;
+  }
+}
+
+@media only screen and (min-width: 390px) {
+  .flow-text2 {
+    font-size: 1.024rem;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .flow-text2 {
+    font-size: 1.048rem;
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  .flow-text2 {
+    font-size: 1.072rem;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .flow-text2 {
+    font-size: 1.096rem;
+  }
+}
+
+
+@media only screen and (max-width: 360px) {
+  .flow-text2 {
+    font-size: 1.0rem;
+  }
 }

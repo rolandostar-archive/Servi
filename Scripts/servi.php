@@ -1,5 +1,13 @@
+
+<thead>
+    <tr>
+        <th><strong lang="es">Sal&oacute;n</strong><br></th>
+        <th><strong lang="es">Hasta</strong><br></th>
+    </tr>
+</thead>
+<tbody class="mono" name="servi">
 <?php
-include_once ('../cpanel/dbconnect.php');
+include_once ('cpanel/dbconnect.php');
 
 date_default_timezone_set('America/Mexico_City');
 $num = date("w");
@@ -29,3 +37,4 @@ if ($date != NULL) {
     }
 } else echo '<p>No Disponible en Fines de Semana</p>';
 ?>
+</tbody>

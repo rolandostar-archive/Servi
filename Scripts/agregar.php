@@ -30,7 +30,7 @@ $fichero='output.txt';
 $actual = file_get_contents($fichero);
 $actual .= print_r($_POST,true);
 $query = "INSERT INTO notify (id,lang,correo,msg,tiempo,enviado) VALUES (NULL,'".$_POST['lang']."','".$_POST['email']."','".$msg_pre.$_POST['Salon'].$msg_pos."',NOW(),0)";
-//$actual .= $query;
+$actual .= $query;
 mysql_query($query);
 
 

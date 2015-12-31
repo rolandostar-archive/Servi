@@ -297,7 +297,6 @@ $userRow=mysql_fetch_array($res);
     $( document ).ready(function() {
         $("#header").slideDown(500);
         $("#body").delay(650).fadeIn("slow");
-        $("html body").animate({ backgroundColor: "#000000" }, 1000);
     });
 
     </script>

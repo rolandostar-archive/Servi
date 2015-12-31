@@ -5,16 +5,6 @@
     <?php include_once ( 'include/meta.php'); include_once ( 'include/styles.php') ; include_once ( 'include/js_head.php'); ?>
     <title>Servi&trade; [Classroom] &raquo;</title>
 
-<script>
-
-    $.post('scripts/servi.php',{},
-        function(output) {
-            $('tbody[name="servi"]').html(output).show();
-        });
-
-</script>
-
-
 </head>
 
 <body>
@@ -33,8 +23,8 @@
         <div class="container">
             <div class="section">
                 <div class="row">
-                    <div class="col s12 m12 l3 offset-l2">
-                        <div class="card grey lighten-3">
+                    <div class="col s12 m12 l3 offset-l2" id="servi_flex">
+                        <div class="card ">
                             <div id="scroll" class="card-content black-text" style="min-width:182px; overflow: hidden;">
                                 <!-- Se muestra solo en Cel -->
                                 <span class="card-title hide-on-med-and-up grey-text text-darken-4" style="line-height:2.5em">
@@ -42,21 +32,15 @@
                                 </span>
                                 <!-- Se muestra en todos menos en Cel -->
                                 <span class="card-title hide-on-small-only" lang="es">Disponibles Ahora</span>
-                                <table class="responsive-table bordered centered hide-on-small-only">
-                                    <thead>
-                                        <tr>
-                                            <th><strong lang="es">Sal&oacute;n</strong><br></th>
-                                            <th><strong lang="es">Hasta</strong><br></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="mono" name="servi"></tbody>
+                                <table class="responsive-table bordered centered hide-on-small-only" name="servi">
+                                <?php include('scripts/servi.php') ?>
                                 </table>
                             </div>
                         </div>
                     </div>
                     <div class="col s12 m12 l5">
-                        <div class="card grey lighten-3">
-                            <div class="card-content blck-text">
+                        <div class="card ">
+                            <div class="card-content blck-text" id="Proximos">
                                 <span class="card-title" lang="es">Pr&oacute;ximos</span>
                                 <!-- Se muestra en todos menos en Cel -->
                                 <table class="bordered centered hide-on-small-only">
@@ -74,7 +58,7 @@
                                             <td>1615</td>
                                             <td>10:31 - 12:00</td>
                                             <td>
-                                                <a class="btn-floating btn waves-effect waves-light blue" id="0" onclick="notify('1615',0)"><i class="material-icons">add_alert</i></a>
+                                                <a class="btn-floating btn waves-effect waves-light blue activator" id="0" onclick="notify('1615',0)"><i class="material-icons">add_alert</i></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -82,7 +66,7 @@
                                             <td>1415</td>
                                             <td>11:49 - 1:30</td>
                                             <td>
-                                                <a class="btn-floating btn waves-effect waves-light blue" id="1" onclick="notify('1415',0)"><i class="material-icons">add_alert</i></a>
+                                                <a class="btn-floating btn waves-effect waves-light blue activator" id="1" onclick="notify('1415',0)"><i class="material-icons">add_alert</i></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -114,15 +98,44 @@
                                     </tbody>
                                 </table>
                             </div>
+                            
+                            <div class="card-reveal2" style="font-size:20px;" id="Notify">
+                                <span class="card-title grey-text text-darken-4" lang="es">Servicio de Notificaciones<i class="material-icons right">close</i></span>
+                                <p class="flow-text2">Dejanos tu correo y te enviaremos una notificacion cuando el salon este <a>disponible</a>.</p>
+                                <form id="notifyform" class="col s12" action="javascript:submitnotify();">
+                                    <div class="row">
+                                        <div class="input-field col s9 m6 l9 offset-m2">
+                                            <i class="material-icons prefix" style="margin-top:6px;">account_circle</i>
+                                            <input id="email" name="email" type="email" value="" class="validate" required>
+                                             <label for="email">Email</label>
+                                        </div>
+                                        <input id="salonSel-hidden" type="hidden" name="Salon" value="">
+                                        <input id="lang" type="hidden" name="lang" value="">
+                                        <div class="input-field col s3 m2 l3 ">
+                                            <select name="salon" disabled>
+                                                <option id="salonSel" selected></option>
+                                            </select>
+                                            <label>Salon</label>
+                                        </div>
+                                    </div>
+                                    <div class="row center">
+                                        <button class="btn waves-effect waves-light" id="submit">Submit
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                    <div id="progress" class="progress">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                    <div class="row center">
+                                        <i class="material-icons" id="done">done</i>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 m12 l8 offset-l2">
-                        <div class="card grey lighten-3">
+                        <div class="card ">
                             <div class="card-content blck-text">
                                 <span class="card-title activator grey-text text-darken-4" lang="es">Reportes<i class="material-icons right">info_outline</i></span>
-                                <table class="responsive-table bordered centered">
+                                <table class=" bordered centered">
                                     <thead>
                                         <tr>
                                             <th><strong lang="es">D&iacute;a</strong></th>
@@ -209,64 +222,166 @@
 <div id="modal1" class="modal bottom-sheet">
     <div class="modal-content">
         <h5 lang="es">Disponibles Ahora</h5>
-        <table class="striped centered">
-            <thead>
-                <tr>
-                    <th><strong lang="es">Sal&oacute;n</strong>
-                        <br>
-                    </th>
-                    <th><strong lang="es">Hasta</strong>
-                        <br>
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="mono" name="servi"></tbody>
+        <table class="striped centered" name="servi">
+            <?php include('scripts/servi.php') ?>
         </table>
     </div>
     <div class="modal-footer">
-        <a class="modal-action modal-close waves-effect waves-green btn-flat" lang="es">Regresar</a>
+        <a class="modal-action modal-close waves-effect waves-teal btn-flat" lang="es">Regresar</a>
     </div>
 </div>
 
-<!-- Modal Notificacion -->
-<div id="notify-modal" class="modal">
-    <div class="modal-content center">
-        <h4>Servicio de Notificaciones</h4>
-        <p>Dejanos tu correo y te enviaremos una notificacion cuando el salon este <a id="myLink">disponible</a></p>
-        <form id="notifyform" class="col s12" action="javascript:submitnotify();">
+<!-- Modal Movil Notificacion -->
+<div id="notify-modal" class="modal bottom-sheet-up">
+        <div class="modal-content center">
+        <h5 lang="es">Servicio de Notificaciones</h5>
+                    <div id="progress" class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        <p class="flow-text2">Dejanos tu correo y te enviaremos una notificacion cuando el salon este <a>disponible</a>.</p>
+        <form id="notifyform-m" class="col s12" action="javascript:submitnotify();">
             <div class="row">
-                <div class="input-field col s9 m7 l8 offset-m1 offset-l1">
+                <div class="input-field col s9 m6 l9 offset-m2">
                     <i class="material-icons prefix" style="margin-top:6px;">account_circle</i>
                     <input id="email" name="email" type="email" value="" class="validate" required>
                      <label for="email">Email</label>
                 </div>
                 <input id="salonSel-hidden" type="hidden" name="Salon" value="">
                 <input id="lang" type="hidden" name="lang" value="">
-                <div class="input-field col s3 m2 l1 ">
+                <div class="input-field col s3 m2 l3 ">
                     <select name="salon" disabled>
                         <option id="salonSel" selected></option>
                     </select>
                     <label>Salon</label>
                 </div>
             </div>
-            <div class="row center">
-                <button class="btn waves-effect waves-light" id="submit">Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </div>
-            <div id="progress" class="progress">
-                <div class="indeterminate"></div>
-            </div>
-            <div class="row center">
-                <i class="material-icons" id="done">done</i>
-            </div>
         </form>
+    </div>
+    <div class="modal-footer">
+        <button class="right modal-action btn-flat waves-effect waves-light" id="submit">Submit
+            <i class="material-icons right">send</i>
+        </button>
+        <a class="left modal-action modal-close waves-effect waves-teal btn-flat" lang="es">Regresar</a>
     </div>
 </div>
 
 
 <?php include_once ( 'include/js_body.php') ?>
 
+<!--SPOOKY SCARY SKELETONS 
+<script>
+        $(function() {
+            var i = 0;
+            var colors = ["#FF0000", "#FFFF00", "#00FF00", "#00FFFF", "#0000FF"];
+            setInterval(function() {
+                var color = colors[i = i++ > 4 ? 0 : i];
+                $("meta[name='theme-color']").attr('content', color);
+                $("#x").text(color);
+            }, 500);
+        });
+    </script>
+-->
+<script>
+  function notify(salon,flag) {
+    if(!flag){
+        document.getElementById("salonSel").innerHTML = salon;
+        document.getElementById("salonSel-hidden").value = salon;
+        document.getElementById("lang").value = Cookies.get('langCookie');
+        document.getElementById('progress').style.display = "block";
+        document.getElementById("progress").style.visibility = "hidden";
+        document.getElementById("done").style.display = "none";
+        $('select').material_select();
+    }else{
+        $('#notify-modal').openModal();
+        $("meta[name='theme-color']").attr('content', "#FFFFFF");
+    }
+  }
+
+  $(document).ready(function() {
+
+
+$('.modal-trigger').leanModal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      ready: function() { alert('Ready'); }, // Callback for Modal open
+      complete: function() { alert('Closed'); } // Callback for Modal close
+    }
+  );
+
+
+
+    var original=$('#Proximos').outerHeight();
+    $(document).on('click.card', '.card', function (e) {
+      if ($(this).find('> .card-reveal2').length) {
+        if ($(e.target).is($('.card-reveal2 .card-title')) || $(e.target).is($('.card-reveal2 .card-title i'))) {
+          // Make Reveal animate down and display none
+          $(this).find('.card-reveal2').velocity(
+            {translateY: 0}, {
+              duration: 225,
+              queue: false,
+              easing: 'easeInOutQuad',
+              complete: function() { 
+
+                $(this).css({ display: 'none'}); 
+              }
+            }
+          );
+          $('#Proximos').animate( {height: original } );
+        }
+        else if ($(e.target).is($('.card .activator')) ||
+                 $(e.target).is($('.card .activator i')) ) {
+          $(e.target).closest('.card').css('overflow', 'hidden');
+          $(this).find('.card-reveal2').css({ display: 'block'}).velocity("stop", false).velocity({translateY: '100%'}, {duration: 300, queue: false, easing: 'easeInOutQuad'});
+          $('#Proximos').animate( {height: $('#Notify').height() } );
+        }
+      }
+
+      $('.card-reveal2').closest('.card').css('overflow', 'hidden');
+
+    });
+
+  });
+
+  function submitnotify(theForm,flag) {
+    if(!flag){
+    var myData = $('#notifyform').serializeArray();
+    $.ajax({
+        url: 'scripts/agregar.php',
+        type: 'POST',
+        data: $.param(myData),
+        success: function(msg) {
+            document.getElementById('progress').style.visibility = "visible"
+            setTimeout(function() {
+                document.getElementById('progress').style.display = "none";
+                document.getElementById('done').style.display = "block";
+            }, 1500);
+            setTimeout(function() {
+                $('#notify-modal').closeModal();
+            }, 3000);
+
+        }
+    });
+    }else{
+        var myData = $('#notifyform-m').serializeArray();
+        $.ajax({
+        url: 'scripts/agregar.php',
+        type: 'POST',
+        data: $.param(myData),
+        success: function(msg) {
+            document.getElementById('progress-m').style.visibility = "visible"
+            setTimeout(function() {
+                document.getElementById('progress-m').style.display = "none";
+                document.getElementById('done').style.display = "block";
+            }, 1500);
+            setTimeout(function() {
+                $('#notify-modal').closeModal();
+            }, 3000);
+
+        }
+    });
+    }
+  }
+
+</script>
 </body>
 
 </html>

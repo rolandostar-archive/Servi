@@ -17,7 +17,7 @@
     </script>
 
     <!-- Libreria Materialize -->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
 
 <script>
