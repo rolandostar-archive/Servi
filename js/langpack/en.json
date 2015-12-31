@@ -52,10 +52,11 @@
         "Servi™ - Panel de Control":"Servi™ - Control Panel",
         "Salones Asignados":"Classrooms Updated",
         "Servicio de Notificaciones":"Notification Service",
-        "El Resto del Día":"Remainder of the Day",
+        "Mañana":"Tomorrow",
         "Dejanos tu correo y te enviaremos una notificación cuando el salón este":"Write down your e-mail and we'll send you a notification when the classrooom is",
         "Listo! Nosotros te avisamos":"Ready! We'll let you know",
         "Enviar":"Submit",
-        "disponible":"available"
+        "disponible":"available",
+        "No Disponible en Fines de Semana":"Not Available on Weekends"
     }
 }

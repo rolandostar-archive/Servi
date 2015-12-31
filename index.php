@@ -25,7 +25,7 @@
             <div class="section">
                 <div class="row">
                     <div class="col s12 m12 l3 offset-l2" id="servi_flex">
-                        <div class="card ">
+                        <div class="card">
                             <div id="scroll" class="card-content black-text" style="min-width:182px; overflow: hidden;">
                                 <!-- Se muestra solo en Cel -->
                                 <span class="card-title hide-on-med-and-up grey-text text-darken-4" style="line-height:2.5em">
@@ -133,7 +133,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card ">
+                        <div class="card" id="report-card">
                             <div class="card-content blck-text">
                                 <span class="card-title activator grey-text text-darken-4" lang="es">Reportes<i class="material-icons right">info_outline</i></span>
                                 <table class=" bordered centered">
@@ -240,7 +240,7 @@
                     <div id="progress-m" class="progress">
                 <div class="indeterminate"></div>
             </div>
-        <p class="flow-text2" lang="es">Dejanos tu correo y te enviaremos una notificación cuando el salón este <a>disponible</a>.</p>
+        <p class="flow-text2" lang="es">Dejanos tu correo y te enviaremos una notificación cuando el salón este <a lang="es">disponible</a>.</p>
             <div class="row">
                 <div class="input-field col s9 m6 l9 offset-m2">
                     <i class="material-icons prefix" style="margin-top:6px;">account_circle</i>
@@ -304,7 +304,18 @@
     }
   }
 
+
+
   $(document).ready(function() {
+    //Funcion para mover servi flex de acuerdo a notify - Desactivado
+    /*
+    var suma = $('#Proximos').outerHeight()+$('#report-card').outerHeight();
+    if ($('#servi_flex').outerHeight() < suma){
+        console.log("keeplayout: "+$('#Proximos').outerHeight());
+        $('#scroll').animate( {'min-height': suma+16 } );
+        var scroller = true;
+    }*/
+
     var original=$('#Proximos').outerHeight();
     $(document).on('click.card', '.card', function (e) {
       if ($(this).find('> .card-reveal2').length) {
@@ -322,12 +333,17 @@
             }
           );
           $('#Proximos').animate( {height: original } );
+          //Funcion para mover servi flex de acuerdo a notify - Desactivado
+          //if(scroller) $('#scroll').animate( {'min-height': original+$('#report-card').outerHeight()+16 } ); 
         }
         else if ($(e.target).is($('.card .activator')) ||
                  $(e.target).is($('.card .activator i')) ) {
           $(e.target).closest('.card').css('overflow', 'hidden');
           $(this).find('.card-reveal2').css({ display: 'block'}).velocity("stop", false).velocity({translateY: '100%'}, {duration: 300, queue: false, easing: 'easeInOutQuad'});
+          console.log($('#Proximos').outerHeight());
           $('#Proximos').animate( {height: $('#Notify').height() } );
+          //Funcion para mover servi flex de acuerdo a notify - Desactivado
+          //if(scroller) $('#scroll').animate( {'min-height': $('#Notify').height()+$('#report-card').outerHeight()+16 } );         
         }
       }
 
@@ -336,7 +352,6 @@
     });
 
   });
-
 
 
   function submitnotify(flag) {
