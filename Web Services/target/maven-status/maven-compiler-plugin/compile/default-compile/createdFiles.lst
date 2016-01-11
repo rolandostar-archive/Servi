@@ -1,0 +1,4 @@
+com\servi\connector\Conecction.class
+com\servi\services\ApplicationREST.class
+com\servi\dto\DtoAdmins.class
+com\servi\services\AdminsREST.class

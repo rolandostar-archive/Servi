@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Servi</string>
+    <string name="action_settings">Configuración</string>
+
+    <!-- Syncro -->
+    <string name="synchro">Descargando datos</string>
+    <string name="synchro_successfull">Descarga satisfactoria</string>
+    <string name="synchro_failed">Descarga fallida, intentelo más tarde</string>
+    <string name="menu_dialog_error_red">Error de red, intentelo mas tarde</string>
+    
+    <!-- Info -->
+    <string name="version_of_app">Versión 0.5</string>
+    <string name="dialog_info">Hecho por Servi\u2122. IPN - ESCOM \u00A9 2016</string>
+    
+    <!-- Home -->
+    <string name="title_activity_home">Home</string>
+    <string name="menu_drawer">Menú</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+    
+    <!-- Available Now -->
+    <string name="classroom">Salon</string>
+    <string name="until">Hasta</string>
+    <string name="tomorrow">Mañana</string>
+    <string name="no_available">No hay salones disponibles por el momento :(</string>
+    <string name="no_available_weekend">No hay salones disponibles en fin de semana</string>
+
+    <!-- Image Descriptions -->
+    <string name="logo_description">Servi logo</string>
+    <string name="button_closed">Boton cerrar</string>
+
+</resources>
