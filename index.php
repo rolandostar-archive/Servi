@@ -24,7 +24,7 @@
         <div class="container">
             <div class="section">
                 <div class="row">
-                    <div class="col s12 m12 l3 offset-l2" id="servi_flex">
+                    <div class="col s12 m12 l4 offset-l1" id="servi_flex">
                         <div class="card">
                             <div id="scroll" class="card-content black-text" style="min-width:182px; overflow: hidden;">
                                 <!-- Se muestra solo en Cel -->
@@ -39,64 +39,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col s12 m12 l5">
+                    <div class="col s12 m12 l6">
                         <div class="card ">
                             <div class="card-content blck-text" id="Proximos">
                                 <span class="card-title" lang="es">Pr&oacute;ximos</span class="card-title"><span> (Dentro de 1:30hr)</span>
                                 <!-- Se muestra en todos menos en Cel -->
                                 <table class="bordered centered hide-on-small-only">
-                                    <thead>
-                                        <tr>
-                                            <th><strong lang="es">Disponible En</strong><br></th>
-                                            <th><strong lang="es">Sal&oacute;n</strong><br></th>
-                                            <th><strong lang="es">Horario</strong><br></th>
-                                            <th><strong lang="es">Notificar</strong><br></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="mono">
-                                        <tr>
-                                            <td>31m</td>
-                                            <td>1615</td>
-                                            <td>10:31 - 12:00</td>
-                                            <td>
-                                                <a class="btn-floating btn waves-effect waves-light blue activator" id="0" onclick="notify('1615',0)"><i class="material-icons">add_alert</i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1hr 49m</td>
-                                            <td>1415</td>
-                                            <td>11:49 - 1:30</td>
-                                            <td>
-                                                <a class="btn-floating btn waves-effect waves-light blue activator" id="1" onclick="notify('1415',0)"><i class="material-icons">add_alert</i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                <?php $mobile=0; include('scripts/prox.php'); ?>
                                 </table>
                                 <!-- Se muestra solo en Cel -->
                                 <table class="bordered centered hide-on-med-and-up">
-                                    <thead>
-                                        <tr>
-                                            <th><strong lang="es">Disponible En</strong></th>
-                                            <th><strong lang="es">Sal&oacute;n</strong></th>
-                                            <th><strong lang="es">Notificar</strong></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="mono">
-                                        <tr>
-                                            <td>31m</th>
-                                            <td>1615</td>
-                                            <td>
-                                                <a class="btn-floating btn waves-effect waves-light blue" id="0" onclick="notify('1615',1)"><i class="material-icons">add_alert</i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1hr 49m</td>
-                                            <td>1415</td>
-                                            <td>
-                                                <a class="btn-floating btn waves-effect waves-light blue" id="1" onclick="notify('1415',1)"><i class="material-icons">add_alert</i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                <?php $mobile=1; include('scripts/prox.php'); ?>
                                 </table>
                             </div>
                             
