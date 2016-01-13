@@ -1,12 +1,27 @@
 package com.servi.dto;
 
-import java.sql.Time;
-
 public class DtoHorario {
 
 	private int id, salon;
 	private String grupo, materia, profesor;
 	private String lunes, martes, miercoles, jueves, viernes;
+	private String until, diff;
+
+	public String getDiff() {
+		return diff;
+	}
+
+	public void setDiff(String diff) {
+		this.diff = diff;
+	}
+
+	public String getUntil() {
+		return until;
+	}
+
+	public void setUntil(String until) {
+		this.until = until;
+	}
 
 	public int getId() {
 		return id;
