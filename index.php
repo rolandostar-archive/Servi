@@ -55,7 +55,7 @@
                             
                             <div class="card-reveal2" style="font-size:20px;" id="Notify">
                                 <span class="card-title grey-text text-darken-4" lang="es">Servicio de Notificaciones<i class="material-icons right">close</i></span>
-                                <p class="flow-text2" lang="es">Dejanos tu correo y te enviaremos una notificación cuando el salón este <a lang="es">disponible</a>.</p>
+                                <p class="flow-text2" lang="es">Dejanos tu correo y te enviaremos una notificación cuando el salón este <a lang="es">disponible</a></p>.
                                 <form id="notifyform" class="col s12" action="javascript:submitnotify(0);">
                                     <div class="row">
                                         <div class="input-field col s9 m6 l9 offset-m2">
@@ -193,7 +193,7 @@
                     <div id="progress-m" class="progress">
                 <div class="indeterminate"></div>
             </div>
-        <p class="flow-text2" lang="es">Dejanos tu correo y te enviaremos una notificación cuando el salón este <a lang="es">disponible</a>.</p>
+        <p class="flow-text2" lang="es">Dejanos tu correo y te enviaremos una notificación cuando el salón este <a lang="es">disponible</a></p>.
             <div class="row">
                 <div class="input-field col s9 m6 l9 offset-m2">
                     <i class="material-icons prefix" style="margin-top:6px;">account_circle</i>

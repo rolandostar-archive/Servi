@@ -40,15 +40,16 @@ if ($date != NULL) {
     <tr>
         <td><?php echo $row['salon'];?></td>
     <?php
-        $until = "Mañana";
+        $until = "<td lang=\"es\">Mañana</td>";
         if($config['current']) $salon = mysql_query("SELECT ".$date." FROM horario WHERE salon=".$row['salon']." AND ".$date." = (SELECT min(".$date.") FROM horario WHERE ".$date.">CURTIME() AND salon=".$row['salon'].")") or die(mysql_error());
         else $salon = mysql_query("SELECT ".$date." FROM horario WHERE salon=".$row['salon']." AND ".$date." = (SELECT min(".$date.") FROM horario WHERE ".$date.">CAST('".$config['time']."' AS TIME) AND salon=".$row['salon'].")") or die(mysql_error());
         while ($row = mysql_fetch_assoc($salon)) {
             $until = $row[$date];
             $until=date('g:i A',strtotime($until));
+            $until="<td>".$until."</td>";
         }
+        echo $until
     ?>
-        <td lang="es"><?php echo $until?></td>
     </tr>
     <?php
         }
