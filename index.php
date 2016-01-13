@@ -42,7 +42,7 @@
                     <div class="col s12 m12 l5">
                         <div class="card ">
                             <div class="card-content blck-text" id="Proximos">
-                                <span class="card-title" lang="es">Pr&oacute;ximos</span>
+                                <span class="card-title" lang="es">Pr&oacute;ximos</span class="card-title"><span> (Dentro de 1:30hr)</span>
                                 <!-- Se muestra en todos menos en Cel -->
                                 <table class="bordered centered hide-on-small-only">
                                     <thead>

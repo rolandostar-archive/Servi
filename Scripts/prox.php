@@ -20,8 +20,8 @@ if($config['current']){
 }
                                     
 if ($date != NULL) {
-    if($config['current']) $hora = mysql_query("SELECT DISTINCT(salon)," . $date . " from horario where salon NOT IN(SELECT salon from horario WHERE " . $date . " BETWEEN SUBTIME(CURTIME(), '01:30') AND CURTIME()) GROUP BY salon") or die(mysql_error());
-    else $hora = mysql_query("SELECT DISTINCT(salon)," . $date . " from horario where salon NOT IN(SELECT salon from horario WHERE " . $date . " BETWEEN SUBTIME(CAST('".$config['time']."' AS TIME), '01:30') AND CAST('".$config['time']."' AS TIME)) GROUP BY salon") or die(mysql_error());
+    if($config['current']) $hora = mysql_query("SELECT DISTINCT(salon)," . $date . " from horario where salon NOT IN(SELECT salon from horario WHERE " . $date . " BETWEEN CURTIME() AND ADDTIME(CURTIME(), '01:30')) GROUP BY salon") or die(mysql_error());
+    else $hora = mysql_query("SELECT DISTINCT(salon)," . $date . " from horario where salon NOT IN(SELECT salon from horario WHERE " . $date . " BETWEEN CAST('".$config['time']."' AS TIME AND ADDTIME(CAST('".$config['time']."' AS TIME),'01:30')) GROUP BY salon") or die(mysql_error());
 
     if(mysql_num_rows($hora) == /*$num_salones[0]*/9001) { // Desactivado
         echo '<caption lang="es">Todos los Salones Disponibles :D</caption>';
@@ -29,8 +29,10 @@ if ($date != NULL) {
             echo '
 <thead>
     <tr>
+        <th><strong lang="es">Disponible En</strong><br></th>
         <th><strong lang="es">Sal&oacute;n</strong><br></th>
-        <th><strong lang="es">Hasta</strong><br></th>
+        <th><strong lang="es">Horario</strong><br></th>
+        <th><strong lang="es">Notificar</strong><br></th>
     </tr>
 </thead>
 <tbody class="mono" name="servi">
@@ -41,8 +43,8 @@ if ($date != NULL) {
         <td><?php echo $row['salon'];?></td>
     <?php
         $until = "Mañana";
-        if($config['current']) $salon = mysql_query("SELECT ".$date." FROM horario WHERE salon=".$row['salon']." AND ".$date." = (SELECT min(".$date.") FROM horario WHERE ".$date.">CURTIME() AND salon=".$row['salon'].")") or die(mysql_error());
-        else $salon = mysql_query("SELECT ".$date." FROM horario WHERE salon=".$row['salon']." AND ".$date." = (SELECT min(".$date.") FROM horario WHERE ".$date.">CAST('".$config['time']."' AS TIME) AND salon=".$row['salon'].")") or die(mysql_error());
+        if($config['current']) $salon = mysql_query("SELECT ".$date." FROM horario WHERE salon=".$row['salon']." AND ".$date." = (SELECT min(".$date.") FROM horario WHERE ".$date.">ADDTIME(CURTIME().'01:30') AND salon=".$row['salon'].")") or die(mysql_error());
+        else $salon = mysql_query("SELECT ".$date." FROM horario WHERE salon=".$row['salon']." AND ".$date." = (SELECT min(".$date.") FROM horario WHERE ".$date.">ADDTIME(CAST('".$config['time']."' AS TIME),'01:30') AND salon=".$row['salon'].")") or die(mysql_error());
         while ($row = mysql_fetch_assoc($salon)) {
             $until = $row[$date];
             $until=date('g:i A',strtotime($until));
