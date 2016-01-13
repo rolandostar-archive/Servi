@@ -125,8 +125,8 @@ $userRow=mysql_fetch_array($res);
                 </div>
                 <div class="col s12 m4 card" value="2" style="cursor:not-allowed">
                     <div class="icon-block">
-                        <h2 class="center grey-text"><i class="material-icons">assignment</i></h2>
-                        <h5 class="center" lang="es">Modificar Reportes</h5>
+                        <h2 class="center grey-text"><i class="material-icons">supervisor_account</i></h2>
+                        <h5 class="center" lang="es">Modificar Admins</h5>
                     </div>
                 </div>
                 <div class="col s12 m4 card" value="3" style="cursor:not-allowed">
@@ -139,8 +139,8 @@ $userRow=mysql_fetch_array($res);
                 <div class="row">
                 <div class="col s12 m4 card" value="4" style="cursor:not-allowed">
                     <div class="icon-block">
-                        <h2 class="center grey-text"><i class="material-icons">schedule</i></h2>
-                        <h5 class="center" lang="es">Renovar Huecos&trade;</h5>
+                        <h2 class="center grey-text"><i class="material-icons">gavel</i></h2>
+                        <h5 class="center" lang="es">Banear IP</h5>
                     </div>
                 </div>
                 <div class="col s12 m4 card click" value="5">

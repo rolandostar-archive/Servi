@@ -2,7 +2,7 @@
 
 return array(
     'current' => 0,
-    'date' => 'lunes',
+    'date' => NULL,
     'time' => '09:16:44'
 );
 

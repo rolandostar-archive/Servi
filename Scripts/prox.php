@@ -66,8 +66,8 @@ if ($date != NULL) {
         $jk++;
         }
     }else {
-        echo '<p lang="es">Ningun Salon Proximo</p>';
+        echo '<tbody class="mono"><td lang="es">Ningun Salon Proximo</td>';
     }
-} else echo '<p lang="es">No Disponible en Fines de Semana</p>';
+} else echo '<tbody class="mono"><td lang="es">No Disponible en Fines de Semana</td>';
 ?>
 </tbody>

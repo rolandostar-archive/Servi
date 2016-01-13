@@ -43,9 +43,9 @@
         "Horarios Registrados":"Scheduled Courses",
         "Modificar Admins":"Modify Admins",
         "Asignar Salones":"Assign Classrooms",
-        "Renovar Huecos™":"Renew Huecos™",
+        "Banear IP":"IP Bans",
         "Modificar Configuración":"Modify Configuration",
-        "Modificar Reportes":"Modify Reports",
+        "Modificar Admins":"Modify Admins",
         "Renovar Horario":"Renew Schedules",
         "Salir":"Logout",
         "Panel de Control":"Control Panel",
@@ -57,6 +57,7 @@
         "Listo! Nosotros te avisamos":"Ready! We'll let you know",
         "Enviar":"Submit",
         "disponible":"available",
+        "(Dentro de 1:30hr)":"(In the next 1:30hr)",
         "No Disponible en Fines de Semana":"Not Available on Weekends"
     }
 }

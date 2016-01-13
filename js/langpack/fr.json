@@ -42,9 +42,9 @@
         "Horarios Registrados":"",
         "Modificar Admins":"",
         "Asignar Salones":"",
-        "Renovar Huecos™":"",
+        "Banear IP":"",
         "Modificar Configuración":"",
-        "Modificar Reportes":"",
+        "Modificar Admins":"",
         "Renovar Horario":"",
         "Salir":"",
         "Panel de Control":"",
@@ -54,6 +54,7 @@
         "El Resto del Día":"",
         "Dejanos tu correo y te enviaremos una notificación cuando el salón este":"",
         "Listo! Nosotros te avisamos":"",
+        "(Dentro de 1:30hr)":"",
         "Enviar":"",
         "disponible":""
     }
