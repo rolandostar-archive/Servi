@@ -48,7 +48,7 @@ if ($date != NULL) {
         if($config['current']) $salon = mysql_query("SELECT ".$date." from horario WHERE ".$date." BETWEEN SUBTIME(CURTIME(), '01:30') AND CURTIME() AND salon = ".$row['salon']) or die(mysql_error());
         else $salon = mysql_query("SELECT ".$date." from horario WHERE ".$date." BETWEEN SUBTIME(CAST('".$config['time']."' AS TIME), '01:30') AND CAST('".$config['time']."' AS TIME) AND salon = ".$row['salon']) or die(mysql_error());
             $row2 = mysql_fetch_assoc($salon);
-            if($config['current']) $time_diff = mysql_fetch_row(mysql_query("SELECT TIMEDIFF(ADDTIME('".$row2[$date]."','01:30'),CURTIME())"));
+            if($config['current']) $minute = mysql_fetch_row(mysql_query("SELECT MINUTE(TIMEDIFF(ADDTIME('".$row2[$date]."','01:30'),CURTIME()))"));
             else $minute = mysql_fetch_row(mysql_query("SELECT MINUTE(TIMEDIFF(ADDTIME('".$row2[$date]."','01:30'),CAST('".$config['time']."' AS TIME)))"));
     ?>
         <td><?php echo convertToHoursMins($minute[0], '%02dhr %02dm'); ?></td>

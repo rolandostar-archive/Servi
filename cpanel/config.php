@@ -2,8 +2,8 @@
 
 return array(
     'current' => 1,
-    'date' => 'lunes',
-    'time' => '18:16:44'
+    'date' => 'viernes',
+    'time' => '09:16:44'
 );
 
 ?>

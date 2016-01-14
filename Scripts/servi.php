@@ -54,7 +54,7 @@ if ($date != NULL) {
     <?php
         }
     }else {
-        echo '<tbody class="mono"><td lang="es">Ningun Salon Disponible/td>';
+        echo '<tbody class="mono"><td lang="es">Ningun Salon Disponible</td>';
     }
 } else echo '<tbody class="mono"><td lang="es">No Disponible en Fines de Semana</td>';
 ?>

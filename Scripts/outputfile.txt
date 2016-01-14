@@ -1,0 +1,1 @@
+INSERT INTO reporte (id,id_horario,reported_on) VALUES (NULL,'2',CURTIME())
