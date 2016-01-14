@@ -23,8 +23,8 @@ if ($date != NULL) {
     if($config['current']) $hora = mysql_query("SELECT DISTINCT(salon)," . $date . " from horario where salon NOT IN(SELECT salon from horario WHERE " . $date . " BETWEEN SUBTIME(CURTIME(), '01:30') AND CURTIME()) GROUP BY salon") or die(mysql_error());
     else $hora = mysql_query("SELECT DISTINCT(salon)," . $date . " from horario where salon NOT IN(SELECT salon from horario WHERE " . $date . " BETWEEN SUBTIME(CAST('".$config['time']."' AS TIME), '01:30') AND CAST('".$config['time']."' AS TIME)) GROUP BY salon") or die(mysql_error());
 
-    if(mysql_num_rows($hora) == /*$num_salones[0]*/9001) { // Desactivado
-        echo '<caption lang="es">Todos los Salones Disponibles :D</caption>';
+    if(mysql_num_rows($hora) == $num_salones[0]) { // Desactivado
+        echo '<caption lang="es">Aun no inician las clases! Hasta Mañana.</caption>';
     }else if(mysql_num_rows($hora) > 0){
             echo '
 <thead>

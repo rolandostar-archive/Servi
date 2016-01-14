@@ -58,6 +58,16 @@
         "Enviar":"Submit",
         "disponible":"available",
         "(Dentro de 1:30hr)":"(In the next 1:30hr)",
-        "No Disponible en Fines de Semana":"Not Available on Weekends"
+        "No Disponible en Fines de Semana":"Not Available on Weekends",
+        "Mandanos un Correo!":"Send us an e-mail!",
+        "No aparece tu salón?":"Classroom not showing up?",
+        "Selecciona el Salon que deseas reportar como disponible.":"Select the classroom you wish to report as available.",
+        "Reportar Un Salon Como Disponible":"Report a Classroom as Available",
+        "Aun no inician las clases! Hasta Mañana.":"Classes haven't started yet! See you tomorrow.",
+        "Agregar un Reporte":"Send a Report",
+        "Agrega un reporte dando click en el enlace \"Agregar un Reporte\".":"Send a report clicking the link that says \"Send a Report\"",
+        "Los usuarios de Servi™ pueden reportar si algun salon que Servi™ reporte como ocupado esta disponible para su uso.":"Any user of Servi™ can send a report stating that a currently unavailable classroom is actually avilable.",
+        "Ningun Salon Proximo":"No Classrooms",
+        "Ningun Salon Reportado como Disponible":"No classrooms reported as available"
     }
 }

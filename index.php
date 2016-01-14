@@ -93,7 +93,7 @@
                                     <table class=" bordered centered">
                                         <?php
                                         $hora = mysql_query("SELECT horario.salon,horario.".$date." FROM horario,reporte WHERE reporte.id_horario = horario.ID") or die(mysql_error());
-                                        if (mysql_num_rows($hora) == 0) echo '<tr><td align="center">Ningun Salon Reportado como Disponible</td></tr>';
+                                        if (mysql_num_rows($hora) == 0) echo '<tr><td align="center" lang="es">Ningun Salon Reportado como Disponible</td></tr>';
                                         else {
                                             echo '<thead>
                                             <tr>
@@ -258,7 +258,7 @@ else
             </div>
         </div>
         <div class="modal-footer">
-            <p class="left" lang="es">No aparece tu sal&oacute;n? <a lang="es" href="mailto:admin@sindral.net?Subject=Servi%u2122%20%5BClassrooms%5D">Mandanos un Correo!</a></p>
+            <p class="left" lang="es">No aparece tu sal&oacute;n? <a href="mailto:admin@sindral.net?Subject=Servi%u2122%20%5BClassrooms%5D"><span lang="es">Mandanos un Correo!</span></a></p>
             <button class="right modal-action btn-flat waves-effect waves-light" id="submit" lang="es">Enviar
                 <i class="material-icons right">send</i>
             </button>
