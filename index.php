@@ -212,24 +212,30 @@
                 </div>-->
                 <?php echo'<input type="hidden" name="ip" value="'.$_SERVER['REMOTE_ADDR'].'">'; ?>
                 <table class="centered highlight">
-                    <thead>
-                        <tr>
-                            <th lang="es">Sal&oacute;n</th>
-                            <th lang="es">Grupo</th>
-                            <th lang="es">Materia</th>
-                            <th lang="es">Profesor</th>
-                            <th lang="es">Lunes</th>
-                            <th lang="es">Martes</th>
-                            <th lang="es">Mi&eacute;rcoles</th>
-                            <th lang="es">Jueves</th>
-                            <th lang="es">Viernes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
                         <?php
                         if ($config['current']) $hora = mysql_query("SELECT * FROM horario WHERE ID NOT IN (SELECT id_horario FROM reporte) AND ".$date." BETWEEN SUBTIME(CURTIME(), '01:30') AND CURTIME() ORDER BY cast(substring(grupo,1,1) AS UNSIGNED),cast(substring(grupo,4,LENGTH(grupo)) AS UNSIGNED)") or die(mysql_error());
                         else $hora = mysql_query("SELECT * FROM horario WHERE ID NOT IN (SELECT id_horario FROM reporte) AND ".$date." BETWEEN SUBTIME('".$config['time']."', '01:30') AND '".$config['time']."' ORDER BY cast(substring(grupo,1,1) AS UNSIGNED),cast(substring(grupo,4,LENGTH(grupo)) AS UNSIGNED)") or die(mysql_error());
                         $ijk = 0;
+
+if (mysql_num_rows($hora) == 0) echo '<tbody><tr><td align="center">Ningun Salon actualmente Ocupado</td></tr>';
+else
+    echo '
+    
+        <thead>
+        <tr>
+            <th lang="es">Sal&oacute;n</th>
+            <th lang="es">Grupo</th>
+            <th lang="es">Materia</th>
+            <th lang="es">Profesor</th>
+            <th lang="es">Lunes</th>
+            <th lang="es">Martes</th>
+            <th lang="es">Mi&eacute;rcoles</th>
+            <th lang="es">Jueves</th>
+            <th lang="es">Viernes</th>
+        </tr>
+        </thead>
+        <tbody>
+        ';
                         while($row = mysql_fetch_assoc($hora)) { 
                             echo '
                             <tr>
