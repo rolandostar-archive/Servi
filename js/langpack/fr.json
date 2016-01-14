@@ -56,6 +56,16 @@
         "Listo! Nosotros te avisamos":"Prêt! Nous vous informerons",
         "(Dentro de 1:30hr)":"(Dans 1 hr 30 min)",
         "Enviar":"Envoyer",
-        "disponible":"disponible"
+        "disponible":"disponible",
+        "Mandanos un Correo!":"Envoyez-nous un e-mail!",
+        "No aparece tu salón?":"Salle de classe ne se présente pas?",
+        "Selecciona el Salon que deseas reportar como disponible.":"Sélectionnez la salle de classe que vous souhaitez signaler comme disponibles.",
+        "Reportar Un Salon Como Disponible":"Signaler une classe comme Disponible",
+        "Aun no inician las clases! Hasta Mañana.":"Les classes ont pas encore commencé! À demain.",
+        "Agregar un Reporte":"Envoyer un rapport",
+        "Agrega un reporte dando click en el enlace \"Agregar un Reporte\".":"Envoyer un rapport en cliquant sur le lien qui dit \"Envoyer un rapport\"",
+        "Los usuarios de Servi™ pueden reportar si algun salon que Servi™ reporte como ocupado esta disponible para su uso.":"Tout utilisateur de Server ™ peut envoyer un rapport indiquant qu'une classe actuellement indisponible est effectivement disponible.",
+        "Ningun Salon Proximo":"Pas de salles de classe à venir",
+        "Ningun Salon Reportado como Disponible":"Pas de salles de classe signalés comme disponibles"
     }
 }

@@ -57,6 +57,17 @@
         "Enviar":"提出します",
         "disponible":"利用できます",
         "(Dentro de 1:30hr)":"(次の1時間半で)",
-        "No Disponible en Fines de Semana":"週末には使用できません"
+        "No Disponible en Fines de Semana":"週末には使用できません",
+
+        "Mandanos un Correo!":"私達に電子メールを送ってください！",
+        "No aparece tu salón?":"教室は表示されませんか？",
+        "Selecciona el Salon que deseas reportar como disponible.":"あなたが利用できるように報告したい教室を選択します。",
+        "Reportar Un Salon Como Disponible":"利用できるように教室を報告",
+        "Aun no inician las clases! Hasta Mañana.":"クラスがまだ開始していません！ また明日ね。",
+        "Agregar un Reporte":"レポートを送信",
+        "Agrega un reporte dando click en el enlace \"Agregar un Reporte\".":"「レポートの送信」というリンクをクリックしてレポートを送信",
+        "Los usuarios de Servi™ pueden reportar si algun salon que Servi™ reporte como ocupado esta disponible para su uso.":"SERVIの™のすべてのユーザーは、現在利用できない教室が実際に利用可能であることを示すレポートを送信することができます。",
+        "Ningun Salon Proximo":"直近の教室ありません",
+        "Ningun Salon Reportado como Disponible":"使用可能と報告されていない教室ません"
     }
 }

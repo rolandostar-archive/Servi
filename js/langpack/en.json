@@ -67,7 +67,7 @@
         "Agregar un Reporte":"Send a Report",
         "Agrega un reporte dando click en el enlace \"Agregar un Reporte\".":"Send a report clicking the link that says \"Send a Report\"",
         "Los usuarios de Servi™ pueden reportar si algun salon que Servi™ reporte como ocupado esta disponible para su uso.":"Any user of Servi™ can send a report stating that a currently unavailable classroom is actually avilable.",
-        "Ningun Salon Proximo":"No Classrooms",
+        "Ningun Salon Proximo":"No Upcoming Classrooms",
         "Ningun Salon Reportado como Disponible":"No classrooms reported as available"
     }
 }
